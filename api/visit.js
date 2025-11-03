@@ -3,16 +3,18 @@ import fs from 'fs';
 const countFile = '/tmp/visit_count.txt';
 
 // 你的网站域名（⚠️改成自己的）
-const allowedOrigin = 'https://zy1xxx.github.io';
+const allowedOrigins = [
+  'https://zy1xxx.github.io',
+  'https://qimeng-ict.github.io'
+];
 
 export default async function handler(req, res) {
   const origin = req.headers.origin || '';
 
   // 检查来源是否匹配
-  if (origin === allowedOrigin) {
-    res.setHeader('Access-Control-Allow-Origin', allowedOrigin);
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
   } else {
-    // 不允许跨域
     return res.status(403).json({ error: 'Forbidden: invalid origin' });
   }
 
