@@ -2,7 +2,6 @@ import fs from 'fs';
 
 const countFile = '/tmp/visit_count.txt';
 
-// 你的网站域名（⚠️改成自己的）
 const allowedOrigins = [
   'https://zy1xxx.github.io',
   'https://qimeng-ict.github.io'
